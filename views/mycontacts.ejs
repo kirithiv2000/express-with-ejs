@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+    </head>
+    <body>
+        <h1>Contacts</h1>
+        <ul>
+
+            <% for (var i of contact_list){%> 
+                <li>
+                    <%= i.name%>
+                    - <%= i.number%><span>
+                        <a href="/delete-contact?name=<%= i.name %>">
+                            delete
+                            
+                        </a>
+                    </span>
+                </li>
+            <%}%>
+        </ul>
+        <form action="/contacts-add" method="post">
+            <input type="text" name="myname" placeholder="enter your name"/>
+            <input type="number" name="mycontactnumber" placeholder="enter your number"/>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
